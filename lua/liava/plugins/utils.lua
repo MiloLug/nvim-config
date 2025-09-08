@@ -1,7 +1,7 @@
 return {
     {
         'chrishrb/gx.nvim',
-        dependencies = { 'plenary.nvim' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
         keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
         cmd = { "Browse" },
         opts = {

@@ -1,6 +1,9 @@
 return {
     {
         'rmagatti/auto-session',
+        dependencies = {
+            'nvim-tree/nvim-tree.lua',
+        },
         lazy = false,
         keys = {
             { "<C-s>", "<cmd>AutoSession search<cr>", desc = "Search Session" },

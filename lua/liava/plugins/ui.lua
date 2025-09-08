@@ -2,7 +2,7 @@ return {
     {
         'nvim-telescope/telescope.nvim',
         dependencies = {
-            'plenary.nvim'
+            'nvim-lua/plenary.nvim'
         },
         keys = {
             { '<leader>pf', '<cmd>lua require("telescope.builtin").find_files({ hidden = true })<CR>',                                               mode = 'n' },
@@ -20,13 +20,14 @@ return {
                 file_ignore_patterns = { "node_modules", "Cargo.lock", "yarn.lock", "package-lock.json", ".git", ".venv" },
                 mappings = {
                     i = {
-                        ["<esc>"] = require("telescope.actions").close,
-                        ["<C-j>"] = require("telescope.actions").move_selection_next,
-                        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+                        ["<esc>"] = function (...) require("telescope.actions").close(...) end,
+                        ["<C-j>"] = function (...) require("telescope.actions").move_selection_next(...) end,
+                        ["<C-k>"] = function (...) require("telescope.actions").move_selection_previous(...) end,
                     },
                 },
             }
-        }
+        },
+        lazy = false,
     },
     {
         'mbbill/undotree',
@@ -47,7 +48,7 @@ return {
     {
         'nvim-tree/nvim-tree.lua',
         dependencies = {
-            'nvim-web-devicons'
+            'nvim-tree/nvim-web-devicons'
         },
         keys = {
             { '<leader>fl', '<cmd>NvimTreeToggle<CR>' }
@@ -129,7 +130,7 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = {
-            'nvim-web-devicons'
+            'nvim-tree/nvim-web-devicons'
         },
         lazy = false,
         config = function()
@@ -152,8 +153,6 @@ return {
             })
         end
     },
-    { 'nvim-lua/plenary.nvim',       event = { 'VeryLazy' } },
-    { 'nvim-tree/nvim-web-devicons', event = { 'VeryLazy' } },
     {
         'lukas-reineke/headlines.nvim',
         dependencies = { "nvim-treesitter" },
